@@ -17,16 +17,19 @@ export class UsersService {
     return users;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return users[id];
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
+  update(id: string, updateUserDto: UpdateUserDto) {
     console.log(id, updateUserDto);
-    return '';
+    return;
   }
 
-  remove(id: number) {
-    return users.splice(id, 1);
+  remove(id: string) {
+    const index = users.findIndex((user) => user.id === id);
+    users.splice(index, 1);
+
+    return;
   }
 }

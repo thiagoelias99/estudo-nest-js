@@ -7,26 +7,26 @@ const products: Product[] = [];
 
 @Injectable()
 export class ProductsService {
-  create(createProductDto: CreateProductDto) {
+  async create(createProductDto: CreateProductDto) {
     const product = createProductDto.toProduct();
     products.push(product);
     return product;
   }
 
-  findAll() {
+  async findAll() {
     return products;
   }
 
-  findOne(id: string) {
+  async findOne(id: string) {
     return products.find((product) => product.id === id);
   }
 
-  update(id: string, updateProductDto: UpdateProductDto) {
+  async update(id: string, updateProductDto: UpdateProductDto) {
     console.log(id, updateProductDto);
     return `This action updates a #${id} product`;
   }
 
-  remove(id: string) {
+  async remove(id: string) {
     return `This action removes a #${id} product`;
   }
 }

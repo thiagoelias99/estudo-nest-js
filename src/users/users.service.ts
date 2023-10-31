@@ -1,35 +1,35 @@
-import { Injectable } from '@nestjs/common';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { User } from './entities/user.entity';
+import { Injectable } from '@nestjs/common'
+import { CreateUserDto } from './dto/create-user.dto'
+import { UpdateUserDto } from './dto/update-user.dto'
+import { User } from './entities/user.entity'
 
-const users: User[] = [];
+const users: User[] = []
 
 @Injectable()
 export class UsersService {
-  create(createUserDto: CreateUserDto) {
-    const user = createUserDto.toUser();
-    users.push(user);
-    return user;
+  async create(createUserDto: CreateUserDto) {
+    const user = createUserDto.toUser()
+    users.push(user)
+    return user
   }
 
-  findAll() {
-    return users;
+  async findAll() {
+    return users
   }
 
-  findOne(id: string) {
-    return users[id];
+  async findOne(id: string) {
+    return users[id]
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
-    console.log(id, updateUserDto);
-    return;
+  async update(id: string, updateUserDto: UpdateUserDto) {
+    console.log(id, updateUserDto)
+    return
   }
 
-  remove(id: string) {
-    const index = users.findIndex((user) => user.id === id);
-    users.splice(index, 1);
+  async remove(id: string) {
+    const index = users.findIndex((user) => user.id === id)
+    users.splice(index, 1)
 
-    return;
+    return
   }
 }

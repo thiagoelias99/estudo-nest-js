@@ -10,12 +10,15 @@ import {
     IsNumber,
     IsOptional,
     IsString,
+    IsUUID,
     ValidateNested,
 } from 'class-validator'
 import { Type } from 'class-transformer'
+import { UserExists } from 'src/validation/user-exists.validation'
 
 export class CreateProductDto {
     @IsString() name: string
+    @IsUUID() @UserExists() userId: string
     @IsString() description: string
     @IsNumber() price: number
     @IsString() category: string
@@ -25,6 +28,7 @@ export class CreateProductDto {
     toProduct() {
         return new Product(
             uuidv4(),
+            this.userId,
             this.name,
             this.description,
             this.price,

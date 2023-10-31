@@ -1,7 +1,7 @@
 import { IsString, IsEmail } from 'class-validator'
 import { User } from '../entities/user.entity'
 import { v4 as uuidv4 } from 'uuid'
-import { UniqueEmail } from '../validation/unique-email.validation'
+import { UniqueEmail } from '../../validation/unique-email.validation'
 
 export class CreateUserDto {
   @IsString() name: string

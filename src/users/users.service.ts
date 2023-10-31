@@ -18,7 +18,7 @@ export class UsersService {
     }
 
     async findOne(id: string) {
-        return users[id]
+        return users.find((user) => user.id === id)
     }
 
     async update(id: string, updateUserDto: UpdateUserDto) {

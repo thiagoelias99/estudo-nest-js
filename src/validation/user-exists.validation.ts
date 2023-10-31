@@ -20,8 +20,12 @@ export class UserExistsValidator implements ValidatorConstraintInterface {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         validationArguments?: ValidationArguments,
     ): Promise<boolean> {
-        const user = await this.userService.findOne(value)
-        return !!user
+        try{
+            const user = await this.userService.findOne(value)
+            return !!user
+        } catch{
+            return false
+        }
     }
 
     defaultMessage(validationArguments?: ValidationArguments): string {

@@ -1,0 +1,104 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Estudo-Nest-Js",
+    "dateExported": "2023-10-31T13:16:03.061Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "0ed72b73-4ada-48c1-a5f4-2f3588e03fd6",
+            "name": "users",
+            "containerId": "",
+            "created": "2023-10-31T10:14:46.617Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "8b76b9d9-8ec7-44fc-bf1d-b85f3d7f7da4",
+            "name": "products",
+            "containerId": "",
+            "created": "2023-10-31T11:50:18.132Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "4c8c7edc-5674-4c99-a8f0-8d88af9b774f",
+            "colId": "1af9b077-aa1b-464a-bb00-3fc2c570a0c9",
+            "containerId": "",
+            "name": "3000",
+            "url": "localhost:3000",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-31T09:59:20.280Z",
+            "modified": "2023-10-31T09:59:29.483Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c7879ab8-c899-455b-a43e-aa4f9bdab1f2",
+            "colId": "1af9b077-aa1b-464a-bb00-3fc2c570a0c9",
+            "containerId": "0ed72b73-4ada-48c1-a5f4-2f3588e03fd6",
+            "name": "get all",
+            "url": "localhost:3000/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-31T10:15:02.075Z",
+            "modified": "2023-10-31T10:15:07.582Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "39511920-9d4e-4319-9b28-d725e386d90b",
+            "colId": "1af9b077-aa1b-464a-bb00-3fc2c570a0c9",
+            "containerId": "0ed72b73-4ada-48c1-a5f4-2f3588e03fd6",
+            "name": "post",
+            "url": "localhost:3000/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-31T10:15:18.822Z",
+            "modified": "2023-10-31T12:46:03.355Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago\",\n  \"email\": \"thiago2@email.com\",\n  \"password\": \"123456\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a87a0eda-f955-4413-bff4-0339390acde2",
+            "colId": "1af9b077-aa1b-464a-bb00-3fc2c570a0c9",
+            "containerId": "8b76b9d9-8ec7-44fc-bf1d-b85f3d7f7da4",
+            "name": "get-all",
+            "url": "localhost:3000/products",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-10-31T11:50:25.639Z",
+            "modified": "2023-10-31T11:50:37.890Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1a85790d-4d38-418e-bb44-1f66c9915cf5",
+            "colId": "1af9b077-aa1b-464a-bb00-3fc2c570a0c9",
+            "containerId": "8b76b9d9-8ec7-44fc-bf1d-b85f3d7f7da4",
+            "name": "post",
+            "url": "localhost:3000/products",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-10-31T11:50:47.449Z",
+            "modified": "2023-10-31T11:54:33.913Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Caixa\",\n  \"description\": \"Caixa de papelão\",\n  \"price\": 14.99,\n  \"category\": \"Embalagens\",\n  \"images\": [\n      {\n        \"url\": \"http://www.google.com\",\n        \"description\": \"uma caixa\"\n      }\n    ]\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common'
 import { CreateUserDto } from './dto/create-user.dto'
 import { UpdateUserDto } from './dto/update-user.dto'
 import { User } from './entities/user.entity'
+import { UserViewDto } from './dto/user-view.dto'
+import { UserListDto } from './dto/user-list.dto'
 
 const users: User[] = []
 
@@ -10,15 +12,15 @@ export class UsersService {
     async create(createUserDto: CreateUserDto) {
         const user = createUserDto.toUser()
         users.push(user)
-        return user
+        return new UserViewDto(user)
     }
 
     async findAll() {
-        return users
+        return new UserListDto(users)
     }
 
     async findOne(id: string) {
-        return users.find((user) => user.id === id)
+        return new UserViewDto(users.find((user) => user.id === id))
     }
 
     async update(id: string, updateUserDto: UpdateUserDto) {

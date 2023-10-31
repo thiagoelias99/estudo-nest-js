@@ -32,4 +32,8 @@ export class UsersService {
 
     return
   }
+
+  async existsWithEmail(email: string) {
+    return users.some((user) => user.email === email)
+  }
 }

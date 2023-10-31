@@ -17,16 +17,7 @@ export class ProductsController {
 
   @Post()
   create(@Body() createProductDto: CreateProductDto) {
-    const productData = new CreateProductDto(
-      createProductDto.name,
-      createProductDto.description,
-      createProductDto.price,
-      createProductDto.category,
-      createProductDto.images,
-      createProductDto.characteristics,
-    );
-
-    return this.productsService.create(productData);
+    return this.productsService.create(createProductDto);
   }
 
   @Get()

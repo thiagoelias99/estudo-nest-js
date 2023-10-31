@@ -17,12 +17,7 @@ export class UsersController {
 
   @Post()
   create(@Body() createUserDto: CreateUserDto) {
-    const userData = new CreateUserDto(
-      createUserDto.name,
-      createUserDto.email,
-      createUserDto.password,
-    );
-    return this.usersService.create(userData);
+    return this.usersService.create(createUserDto);
   }
 
   @Get()

@@ -5,16 +5,34 @@ import {
   ProductCharacteristic,
   ProductImage,
 } from '../entities/product.entity';
+import {
+  IsArray,
+  IsNumber,
+  IsOptional,
+  IsString,
+  ValidateNested,
+} from 'class-validator';
+import { Type } from 'class-transformer';
 
 export class CreateProductDto {
-  constructor(
-    public readonly name: string,
-    public readonly description: string,
-    public readonly price: number,
-    public readonly category: string,
-    public readonly images?: ProductImage[] | undefined,
-    public readonly characteristics?: ProductCharacteristic[] | undefined,
-  ) {}
+  @IsString()
+  name: string;
+  @IsString()
+  description: string;
+  @IsNumber()
+  price: number;
+  @IsString()
+  category: string;
+  @ValidateNested()
+  @IsArray()
+  @Type(() => ProductImage)
+  @IsOptional()
+  images?: ProductImage[] | undefined;
+  @ValidateNested()
+  @IsArray()
+  @Type(() => ProductCharacteristic)
+  @IsOptional()
+  characteristics?: ProductCharacteristic[] | undefined;
 
   toProduct() {
     return new Product(

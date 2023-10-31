@@ -1,3 +1,5 @@
+import { IsString } from 'class-validator';
+
 export class Product {
   constructor(
     public readonly id: string,
@@ -13,15 +15,15 @@ export class Product {
 }
 
 export class ProductImage {
-  constructor(
-    public readonly url: string,
-    public readonly description: string,
-  ) {}
+  @IsString()
+  url: string;
+  @IsString()
+  description: string;
 }
 
 export class ProductCharacteristic {
-  constructor(
-    public readonly name: string,
-    public readonly description: string,
-  ) {}
+  @IsString()
+  name: string;
+  @IsString()
+  description: string;
 }

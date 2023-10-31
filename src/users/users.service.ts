@@ -7,33 +7,33 @@ const users: User[] = []
 
 @Injectable()
 export class UsersService {
-  async create(createUserDto: CreateUserDto) {
-    const user = createUserDto.toUser()
-    users.push(user)
-    return user
-  }
+    async create(createUserDto: CreateUserDto) {
+        const user = createUserDto.toUser()
+        users.push(user)
+        return user
+    }
 
-  async findAll() {
-    return users
-  }
+    async findAll() {
+        return users
+    }
 
-  async findOne(id: string) {
-    return users[id]
-  }
+    async findOne(id: string) {
+        return users[id]
+    }
 
-  async update(id: string, updateUserDto: UpdateUserDto) {
-    console.log(id, updateUserDto)
-    return
-  }
+    async update(id: string, updateUserDto: UpdateUserDto) {
+        console.log(id, updateUserDto)
+        return
+    }
 
-  async remove(id: string) {
-    const index = users.findIndex((user) => user.id === id)
-    users.splice(index, 1)
+    async remove(id: string) {
+        const index = users.findIndex((user) => user.id === id)
+        users.splice(index, 1)
 
-    return
-  }
+        return
+    }
 
-  async existsWithEmail(email: string) {
-    return users.some((user) => user.email === email)
-  }
+    async existsWithEmail(email: string) {
+        return users.some((user) => user.email === email)
+    }
 }

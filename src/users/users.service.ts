@@ -4,7 +4,7 @@ import { UpdateUserDto } from './dto/update-user.dto'
 import { User } from './entities/user.entity'
 import { UserViewDto } from './dto/user-view.dto'
 import { UserListDto } from './dto/user-list.dto'
-import { v4 as uuidv4 } from 'uuid'
+import { UserRepository } from './users.repository'
 
 const users: User[] = []
 
@@ -14,38 +14,34 @@ const users: User[] = []
 
 @Injectable()
 export class UsersService {
+  constructor(private readonly userRepository: UserRepository) { }
+
   async create(createUserDto: CreateUserDto) {
-    const user = new User(
-      uuidv4(),
-      createUserDto.name,
-      createUserDto.email,
-      createUserDto.password
-    )
-    users.push(user)
+    const user = await this.userRepository.create(createUserDto)
     return new UserViewDto(user)
   }
 
   async findAll() {
+    const users = await this.userRepository.findAll()
     return new UserListDto(users)
   }
 
   async findOne(id: string) {
-    return new UserViewDto(users.find((user) => user.id === id))
+    const user = await this.userRepository.findOne(id)
+    return new UserViewDto(user)
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {
-    console.log(id, updateUserDto)
-    return
+    const user = await this.userRepository.update(id, updateUserDto)
+    return new UserViewDto(user)
   }
 
   async remove(id: string) {
-    const index = users.findIndex((user) => user.id === id)
-    users.splice(index, 1)
-
-    return
+    return await this.userRepository.remove(id)
   }
 
   async existsWithEmail(email: string) {
-    return users.some((user) => user.email === email)
+    const user = await this.userRepository.findOneByEmail(email)
+    return !!user
   }
 }

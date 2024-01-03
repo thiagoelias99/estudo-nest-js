@@ -21,7 +21,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     'indent': [
         'error',
-        4
+        2
     ],
     'linebreak-style': [
         'error',

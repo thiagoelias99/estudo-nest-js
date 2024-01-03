@@ -5,7 +5,7 @@ import { UniqueEmailValidator } from '../validation/unique-email.validation'
 import { UserExistsValidator } from 'src/validation/user-exists.validation'
 
 @Module({
-    controllers: [UsersController],
-    providers: [UsersService, UniqueEmailValidator, UserExistsValidator],
+  controllers: [UsersController],
+  providers: [UsersService, UniqueEmailValidator, UserExistsValidator],
 })
 export class UsersModule { }

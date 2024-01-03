@@ -1,17 +1,17 @@
 import { v4 as uuidv4 } from 'uuid'
 
 import {
-    Product,
-    ProductCharacteristic,
-    ProductImage,
+  Product,
+  ProductCharacteristic,
+  ProductImage,
 } from '../entities/product.entity'
 import {
-    IsArray,
-    IsNumber,
-    IsOptional,
-    IsString,
-    IsUUID,
-    ValidateNested,
+  IsArray,
+  IsNumber,
+  IsOptional,
+  IsString,
+  IsUUID,
+  ValidateNested,
 } from 'class-validator'
 import { Type } from 'class-transformer'
 import { UserExists } from 'src/validation/user-exists.validation'
@@ -26,17 +26,17 @@ export class CreateProductDto {
     @ValidateNested() @IsArray() @Type(() => ProductCharacteristic) @IsOptional() characteristics?: ProductCharacteristic[] | undefined
 
     toProduct() {
-        return new Product(
-            uuidv4(),
-            this.userId,
-            this.name,
-            this.description,
-            this.price,
-            this.category,
-            this.images || [],
-            this.characteristics || [],
-            new Date(),
-            new Date(),
-        )
+      return new Product(
+        uuidv4(),
+        this.userId,
+        this.name,
+        this.description,
+        this.price,
+        this.category,
+        this.images || [],
+        this.characteristics || [],
+        new Date(),
+        new Date(),
+      )
     }
 }

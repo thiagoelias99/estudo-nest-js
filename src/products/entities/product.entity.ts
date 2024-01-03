@@ -1,7 +1,7 @@
 import { IsString } from 'class-validator'
 
 export class Product {
-    constructor(
+  constructor(
         public readonly id: string,
         public readonly userId: string,
         public readonly name: string,
@@ -12,7 +12,7 @@ export class Product {
         public readonly characteristics: ProductCharacteristic[],
         public readonly createdAt: Date,
         public readonly updatedAt: Date,
-    ) { }
+  ) { }
 }
 
 export class ProductImage {

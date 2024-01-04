@@ -1,6 +1,6 @@
 import { IsOptional, IsString, IsUUID } from 'class-validator'
 
-export class UpdateUserDto {
+export class DeleteUserDto {
   @IsUUID() id: string
-  @IsString() @IsOptional() name: string
+  @IsString() password: string
 }

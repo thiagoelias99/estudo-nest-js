@@ -12,13 +12,17 @@ export class UserRepository {
   }
 
   async findAll() {
-    return await this.prisma.user.findMany()
+    return await this.prisma.user.findMany(
+
+    )
   }
 
   async findOne(id: string) {
-    return await this.prisma.user.findUnique({ where: { id } })
+    return await this.prisma.user.findUnique({
+      where: { id }
+    })
   }
-  
+
   async findOneByEmail(email: string) {
     return await this.prisma.user.findUnique({ where: { email } })
   }

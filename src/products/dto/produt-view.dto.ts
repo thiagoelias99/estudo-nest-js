@@ -3,7 +3,7 @@ import { Product, ProductCharacteristic, ProductImage } from '../entities/produc
 import { UsersService } from 'src/users/users.service'
 
 export class ProductViewDto{
-  constructor(product: Product, user: UserViewDto){
+  constructor(product: Product){
     this.id = product.id
     this.name = product.name
     this.description = product.description
@@ -11,14 +11,13 @@ export class ProductViewDto{
     this.category = product.category
     this.images = product.images
     this.characteristics = product.characteristics
-    this.user = user
   }
 
   id: string
   name: string
   price: number
   description: string
-  images: ProductImage[]
+  images: {url: string, description: string}[]
   characteristics: ProductCharacteristic[]
   category: string
   user: UserViewDto

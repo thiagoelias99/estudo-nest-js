@@ -1,8 +1,11 @@
+import { Product } from 'src/products/entities/product.entity'
+
 export class User {
-  constructor(
-        public readonly id: string,
-        public readonly name: string,
-        public readonly email: string,
-        public readonly password: string,
-  ) { }
+  id?: string
+  name: string
+  email: string
+  password?: string
+  // order?: Order[]
+  createdAt?: Date
+  updatedAt?: Date
 }

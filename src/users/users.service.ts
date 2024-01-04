@@ -25,6 +25,7 @@ export class UsersService {
 
   async findAll() {
     const users = await this.userRepository.findAll()
+    console.log(users)
     return new UserListDto(users)
   }
 

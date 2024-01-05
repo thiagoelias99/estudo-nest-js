@@ -1,4 +1,7 @@
-import { PartialType } from '@nestjs/mapped-types'
-import { CreateOrderDto } from './create-order.dto'
+import { IsNumber, IsUUID } from 'class-validator'
+import { OrderExists } from 'src/validation/order-exists.validation'
 
-export class UpdateOrderDto extends PartialType(CreateOrderDto) {}
+export class UpdateOrderTotalDto {
+  @IsUUID() @OrderExists() id: string
+  @IsNumber() total: number
+}

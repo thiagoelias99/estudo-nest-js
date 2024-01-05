@@ -22,4 +22,25 @@ export class OrderRepository {
       }
     })
   }
+
+  async findAll(): Promise<Order[]> {
+    return this.prisma.order.findMany()
+  }
+
+  async findOne(id: string): Promise<Order> {
+    return this.prisma.order.findUnique(
+      {
+        where: { id },
+        include: {
+          user: true,
+        }
+      })
+  }
+
+  async updateOrderValue(id: string, total: number): Promise<Order> {
+    return this.prisma.order.update({
+      where: { id },
+      data: { total }
+    })
+  }
 }

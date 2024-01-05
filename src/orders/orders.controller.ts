@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common'
 import { OrdersService } from './orders.service'
 import { CreateOrderDto } from './dto/create-order.dto'
-import { UpdateOrderDto } from './dto/update-order.dto'
+import { UpdateOrderTotalDto } from './dto/update-order.dto'
 
 @Controller('orders')
 export class OrdersController {
@@ -19,12 +19,12 @@ export class OrdersController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.ordersService.findOne(+id)
+    return this.ordersService.findOne(id)
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateOrderDto: UpdateOrderDto) {
-    return this.ordersService.update(+id, updateOrderDto)
+  @Patch()
+  update(@Body() data: UpdateOrderTotalDto) {
+    return this.ordersService.update(data)
   }
 
   @Delete(':id')
